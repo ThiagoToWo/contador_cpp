@@ -9,6 +9,7 @@ void reduce(string&);
 
 int main() {
 	ifstream in; // o leitor arquivo
+	ofstream of; // gravador de resultados em um arquivo
 	string file_name; // o nome do arquivo
 	string s; // a palavra
 	const int SIZE_P = 74091; // quantidade máxima de palavras
@@ -58,23 +59,25 @@ int main() {
 		}
 	}
 	
-	cout << "A entrada possui " << num_linha << " linhas, " << num_palavra << " palavras \n"
+	of.open(file_name + "_resultados.txt");
+
+	of << "A entrada possui " << num_linha << " linhas, " << num_palavra << " palavras \n"
 		 << "e as seguintes frequências de letras e palavras:\n";
 	
 	for (int i = 65; i < SIZE_L; i++) {
-		cout << '\t' << char(i) << ": " << freq_l[i];
-		if (i > 0 && i % 8 == 0) cout << endl;
+		of << '\t' << char(i) << ": " << freq_l[i];
+		if (i > 0 && i % 8 == 0) of << endl;
 	}
 	
-	cout << endl;
+	of << endl;
 	
 	for (int i = 0; i < n; i++) {
-		if (i > 0 && i % 3 == 0) cout << endl;
-		cout << setw(20) << setiosflags(ios::right) << palavras[i].c_str() 
+		if (i > 0 && i % 3 == 0) of << endl;
+		of << setw(20) << setiosflags(ios::right) << palavras[i].c_str() 
 			 << ": " << setw(2) << freq_p[i];		
 	}
 	
-	cout << endl;
+	of << endl;
 	
 	system("pause");
 }
