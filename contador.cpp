@@ -8,11 +8,10 @@ using namespace std;
 void reduce(string&);
 
 int main() {
-	system("chcp 65001");
 	ifstream in; // o leitor arquivo
 	string file_name; // o nome do arquivo
 	string s; // a palavra
-	const int SIZE_P = 1000; // quantidade máxima de palavras
+	const int SIZE_P = 74091; // quantidade máxima de palavras
 	const int SIZE_L = 91; // quantidade máxima de letras
 	string palavras[SIZE_P]; // armazena as palavras
 	int num_linha = 0; // conta as linhas
